@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/elixir:1.6.4
+        name: web
+        environment:
+          - EVENTSTORE_DATABASE_URL=postgres://admin:adminpass@db/eventstore_test
+      - image: circleci/postgres:10.3
+        name: db
+        environment:
+          - POSTGRES_USER=admin
+          - POSTGRES_PASSWORD=adminpass
+          - POSTGRES_DB=eventstore_test
+    steps:
+      - checkout
+      - run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - run: mix do local.hex --force, local.rebar --force
+      - run: mix do deps.get, deps.clean --unused
+      - run: mix test --trace --cover
+      - store_test_results:
+          path: cover
