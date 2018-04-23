@@ -1,5 +1,7 @@
 # phoenix-commanded-example
 
+[![CircleCI](https://circleci.com/gh/rai200890/phoenix-commanded-example.svg?style=svg&circle-token=d96bf0578abc49d1b8012e06f61841e864defae6)](https://circleci.com/gh/rai200890/phoenix-commanded-example)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
