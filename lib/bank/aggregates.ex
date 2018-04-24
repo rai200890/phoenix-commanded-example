@@ -1,11 +1,13 @@
 defmodule Bank.Aggregates do
+  @moduledoc false
   alias Bank.Commands.OpenAccount
   alias Bank.Events.AccountOpened
 
   defmodule Account do
+    @moduledoc false
     defstruct [:number, :balance]
 
-    def execute(%Account{number: nil} = account, %OpenAccount{number: number, initial_balance: initial_balance})
+    def execute(%Account{number: nil}, %OpenAccount{number: number, initial_balance: initial_balance})
         when initial_balance > 0
       do
         %AccountOpened{number: number, initial_balance: initial_balance}

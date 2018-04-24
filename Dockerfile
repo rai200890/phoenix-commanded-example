@@ -5,7 +5,6 @@ ADD . .
 RUN apt-get update && apt-get install -y postgresql-client
 RUN mix do \
     local.hex --force, \
-    local.rebar --force, \
-    deps.unlock --all, \
+    local.rebar --force
     deps.get, \
-    deps.clean --unused \
+    deps.clean --unused

@@ -42,7 +42,7 @@ defmodule Bank.Mixfile do
       {:cowboy, "~> 1.0"},
       {:commanded, "~> 0.15"},
       {:commanded_eventstore_adapter, "~> 0.3"},
-      {:credo, "~> 0.9.1"}
+      {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false}
     ]
   end
 end

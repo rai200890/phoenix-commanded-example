@@ -14,3 +14,5 @@ config :commanded, event_store_adapter: Commanded.EventStore.Adapters.EventStore
 config :eventstore, EventStore.Storage,
   serializer: Commanded.Serialization.JsonSerializer,
   url: System.get_env("EVENTSTORE_DATABASE_URL")
+
+config :bank, consistency: :strong

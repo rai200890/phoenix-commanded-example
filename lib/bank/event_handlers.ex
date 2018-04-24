@@ -1,7 +1,10 @@
 defmodule Bank.EventHandlers do
+  @moduledoc false
+
   defmodule AccountBalanceHandler do
+    @moduledoc false
     use Commanded.Event.Handler, name: __MODULE__
-    alias Bank.Commands.AccountOpened
+    alias Bank.Events.AccountOpened
 
     def init do
       with {:ok, _pid} <- Agent.start_link(fn -> 0 end, name: __MODULE__) do
